@@ -1,0 +1,39 @@
+{
+	"about": {
+		"title": "PowerDNS",
+		"explanation": "PowerDNS Server"
+	},
+	"configuration": {
+		"api_key": "^^random(128)^^",
+		"dns_type" : "none"
+	},
+	"volumes": [
+		{
+			"destination": "/var/lib/powerdns/",
+			"source": "data"
+		}
+	],
+	"bindings": [
+		{
+			"type": "embed",
+			"target": {
+				"repository": "https://github.com/v2Blueprints/enginesd_debian_base"
+			}
+		}
+	],
+	"system_packages": {
+		"adds": [
+			"pdns-server",
+			"pdns-backend-sqlite3",
+			"sqlite"
+		]
+	},
+	"containers": [
+		{
+			"type": "lxd"
+		}
+	],
+	"binding_target": {
+	  "api_key": "^^api_key^^"
+	}
+}
