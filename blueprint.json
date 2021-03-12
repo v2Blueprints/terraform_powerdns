@@ -32,7 +32,7 @@
 		"adds": [
 			"pdns-server",
 			"pdns-backend-sqlite3",
-			"sqlite"
+			"sqlite3"
 		]
 	},
 	"containers": [
