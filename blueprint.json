@@ -7,11 +7,13 @@
 		"type": "power_dns"
 	},
 	"configuration": {
-		"api_key": "^^random(128)^^",
-		"server_url": "http://[fd61:d025:74d7:f46a::ffff]:8081/api/v1",
 		"version": "1.4.0",
 		"source": "pan-net/powerdns",
 		"ttl": 120,
+		"protocol": "http",
+		"port" : 8081,
+		"endpoint": "api/v1",
+		"api_key": "^^random(128)^^",
 		"dns_type": "none"
 	},
 	"volumes": [
