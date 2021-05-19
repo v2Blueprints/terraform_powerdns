@@ -13,9 +13,14 @@
 		"protocol": "http",
 		"port" : 8081,
 		"endpoint": "api/v1",
-		"api_key": "^^random(128)^^",
+		"api_key": "^^random(64)^^",
 		"dns_type": "none"
 	},
+	"ports" : [{
+	 "start_port": 53,
+	 "external_port": 53,
+	  "protocol": "udp"	  
+	}], 
 	"volumes": [
 		{
 			"destination": "/var/lib/powerdns/",
@@ -34,7 +39,8 @@
 		"adds": [
 			"pdns-server",
 			"pdns-backend-sqlite3",
-			"sqlite3"
+			"sqlite3",
+			"syslog-ng"
 		]
 	},
 	"containers": [
