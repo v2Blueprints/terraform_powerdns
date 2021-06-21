@@ -42,10 +42,5 @@
 			"sqlite3",
 			"syslog-ng"
 		]
-	},
-	"containers": [
-		{
-			"type": "lxd"
-		}
-	]
+	}
 }
