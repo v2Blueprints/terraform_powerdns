@@ -16,11 +16,17 @@
 		"api_key": "^^random(64)^^",
 		"dns_type": "none"
 	},
+	"images": [
+		{
+			"type": "docker",
+			"image": "engines/debian"
+		}
+	],
 	"ports" : [{
 	 "start_port": 53,
 	 "external_port": 53,
-	  "protocol": "udp"	  
-	}], 
+	  "protocol": "udp"
+	}],
 	"volumes": [
 		{
 			"destination": "/var/lib/powerdns/",
