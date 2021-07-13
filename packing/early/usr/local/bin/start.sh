@@ -1,3 +1,3 @@
 #!/bin/sh
 
-sleep 4000
+exec sleep 4000
