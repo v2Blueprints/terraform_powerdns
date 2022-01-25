@@ -16,36 +16,39 @@
 		"api_key": "^^random(64)^^",
 		"dns_type": "none"
 	},
-	"images": [
+	"ports" : [
 		{
-			"type": "docker",
-			"image": "spaces/engines/base_arena/enginesd_debian_base"
+			"start_port": 53,
+			"external_port": 53,
+			"protocol": "udp"
 		}
 	],
-	"ports" : [{
-	 "start_port": 53,
-	 "external_port": 53,
-	  "protocol": "udp"
-	}],
 	"volumes": [
 		{
 			"destination": "/var/lib/powerdns/",
-			"source": "data"
+			"name": "data"
 		}
 	],
-			"executions": [
-		{
-			"type": "docker",
-			"CMD": "/usr/local/bin/start.sh"
-		}
-		],
 	"bindings": [
 		{
 			"type": "embed",
+			"runtimes": [
+			  "lxd"
+			],
 			"target": {
-				"repository": "https://github.com/v2Blueprints/enginesd_debian_base"
+			  "repository": "https://github.com/v2Blueprints/enginesd_debian_base"
 			}
 		}
+	],
+	"images": [
+	  {
+	    "runtimes": [
+	      "docker"
+	    ],
+	    "target": {
+	      "repository": "https://github.com/v2Blueprints/enginesd_debian_base"
+	    }
+	  }
 	],
 	"system_packages": {
 		"adds": [
