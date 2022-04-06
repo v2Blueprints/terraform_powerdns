@@ -1,61 +1,13 @@
 {
 	"about": {
-		"title": "PowerDNS",
-		"explanation": "PowerDNS Server"
+		"title": "Terraform PowerDNS Provider",
+		"explanation": "Declares Terraform's registry configuration for PowerDNS"
 	},
-	"provider": {
-		"type": "power_dns"
-	},
-	"configuration": {
-		"version": "1.4.0",
-		"source": "pan-net/powerdns",
-		"ttl": 120,
-		"protocol": "http",
-		"port" : 8081,
-		"endpoint": "api/v1",
-		"api_key": "^^random(64)^^",
-		"dns_type": "none"
-	},
-	"ports" : [
-		{
-			"start_port": 53,
-			"external_port": 53,
-			"protocol": "udp"
+	"binding_target": {
+		"configuration": {
+			"version": "1.4.0",
+			"source": "pan-net/powerdns",
+			"dns_type": "none"
 		}
-	],
-	"volumes": [
-		{
-			"destination": "/var/lib/powerdns/",
-			"name": "data"
-		}
-	],
-	"bindings": [
-		{
-			"type": "embed",
-			"runtimes": [
-			  "lxd"
-			],
-			"target": {
-			  "repository": "https://github.com/v2Blueprints/enginesd_debian_base"
-			}
-		}
-	],
-	"images": [
-	  {
-	    "runtimes": [
-	      "docker"
-	    ],
-	    "target": {
-	      "repository": "https://github.com/v2Blueprints/enginesd_debian_base"
-	    }
-	  }
-	],
-	"system_packages": {
-		"adds": [
-			"pdns-server",
-			"pdns-backend-sqlite3",
-			"sqlite3",
-			"syslog-ng"
-		]
 	}
 }
